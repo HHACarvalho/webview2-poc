@@ -77,7 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.webViewWindow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -87,4 +86,3 @@
         private System.Windows.Forms.TextBox textUrl;
     }
 }
-
