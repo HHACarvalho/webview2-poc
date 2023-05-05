@@ -64,6 +64,7 @@
             this.textUrl.Size = new System.Drawing.Size(838, 20);
             this.textUrl.TabIndex = 2;
             this.textUrl.Text = "https://www.google.com/";
+            this.textUrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textUrlEnter);
             // 
             // buttonScreenshot
             // 

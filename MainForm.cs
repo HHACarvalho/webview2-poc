@@ -40,6 +40,14 @@ namespace webview2_poc
             webViewWindow.Source = uri;
         }
 
+        private void textUrlEnter(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                buttonSubmit_Click(sender, e);
+            }
+        }
+
         private void buttonScreenshot_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Screenshot!");
