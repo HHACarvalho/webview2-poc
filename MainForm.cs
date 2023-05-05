@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Microsoft.Web.WebView2.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,15 +45,20 @@ namespace webview2_poc
 
         private void textUrlEnter(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 buttonSubmit_Click(sender, e);
             }
         }
 
-        private void buttonScreenshot_Click(object sender, EventArgs e)
+        private async void buttonScreenshot_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Screenshot!");
+            var path = @"C:\temp\test.png";
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await webViewWindow.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
+            }
         }
     }
 }
