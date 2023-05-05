@@ -39,5 +39,10 @@ namespace webview2_poc
             textUrl.Text = uri.ToString();
             webViewWindow.Source = uri;
         }
+
+        private void buttonScreenshot_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Screenshot!");
+        }
     }
 }
