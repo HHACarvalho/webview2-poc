@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.webViewWindow = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.buttonGo = new System.Windows.Forms.Button();
             this.textUrl = new System.Windows.Forms.TextBox();
@@ -85,6 +86,7 @@
             this.Controls.Add(this.textUrl);
             this.Controls.Add(this.buttonGo);
             this.Controls.Add(this.webViewWindow);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "WebView2 Application";
             ((System.ComponentModel.ISupportInitialize)(this.webViewWindow)).EndInit();
