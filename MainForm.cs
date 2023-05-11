@@ -23,8 +23,7 @@ namespace webview2_poc
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
             var rawUrl = textUrl.Text;
-            Uri uri = null;
-
+            Uri uri;
             if (Uri.IsWellFormedUriString(rawUrl, UriKind.Absolute))
             {
                 uri = new Uri(rawUrl);
@@ -40,7 +39,7 @@ namespace webview2_poc
             }
 
             textUrl.Text = uri.ToString();
-            webViewWindow.Source = uri;
+            mainWV.Source = uri;
         }
 
         private void textUrlEnter(object sender, KeyEventArgs e)
@@ -57,7 +56,17 @@ namespace webview2_poc
 
             using (var stream = new FileStream(path, FileMode.Create))
             {
-                await webViewWindow.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
+                await mainWV.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
+            }
+        }
+
+        private async void buttonScreenshotSec_Click(object sender, EventArgs e)
+        {
+            var path = @"C:\temp\testSec.png";
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await secondaryWV.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
             }
         }
     }
