@@ -29,24 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.webViewWindow = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.mainWV = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.buttonGo = new System.Windows.Forms.Button();
             this.textUrl = new System.Windows.Forms.TextBox();
             this.buttonScreenshot = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.webViewWindow)).BeginInit();
+            this.secondaryWV = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.textUrlSec = new System.Windows.Forms.TextBox();
+            this.buttonScreenshotSec = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.mainWV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondaryWV)).BeginInit();
             this.SuspendLayout();
             // 
-            // webViewWindow
+            // mainWV
             // 
-            this.webViewWindow.AllowExternalDrop = true;
-            this.webViewWindow.CreationProperties = null;
-            this.webViewWindow.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webViewWindow.Location = new System.Drawing.Point(12, 41);
-            this.webViewWindow.Name = "webViewWindow";
-            this.webViewWindow.Size = new System.Drawing.Size(1000, 523);
-            this.webViewWindow.Source = new System.Uri("https://www.google.com/", System.UriKind.Absolute);
-            this.webViewWindow.TabIndex = 0;
-            this.webViewWindow.ZoomFactor = 1D;
+            this.mainWV.AllowExternalDrop = true;
+            this.mainWV.CreationProperties = null;
+            this.mainWV.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.mainWV.Location = new System.Drawing.Point(12, 41);
+            this.mainWV.Name = "mainWV";
+            this.mainWV.Size = new System.Drawing.Size(1000, 523);
+            this.mainWV.Source = new System.Uri("https://www.google.com/", System.UriKind.Absolute);
+            this.mainWV.TabIndex = 0;
+            this.mainWV.ZoomFactor = 1D;
             // 
             // buttonGo
             // 
@@ -77,19 +81,54 @@
             this.buttonScreenshot.UseVisualStyleBackColor = true;
             this.buttonScreenshot.Click += new System.EventHandler(this.buttonScreenshot_Click);
             // 
+            // secondaryWV
+            // 
+            this.secondaryWV.AllowExternalDrop = true;
+            this.secondaryWV.CreationProperties = null;
+            this.secondaryWV.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.secondaryWV.Location = new System.Drawing.Point(12, 700);
+            this.secondaryWV.Name = "secondaryWV";
+            this.secondaryWV.Size = new System.Drawing.Size(1000, 523);
+            this.secondaryWV.Source = new System.Uri("https://www.youtube.com/", System.UriKind.Absolute);
+            this.secondaryWV.TabIndex = 4;
+            this.secondaryWV.TabStop = false;
+            this.secondaryWV.ZoomFactor = 1D;
+            // 
+            // textUrlSec
+            // 
+            this.textUrlSec.Location = new System.Drawing.Point(12, 573);
+            this.textUrlSec.Name = "textUrlSec";
+            this.textUrlSec.Size = new System.Drawing.Size(918, 20);
+            this.textUrlSec.TabIndex = 5;
+            this.textUrlSec.Text = "https://www.youtube.com/";
+            // 
+            // buttonScreenshotSec
+            // 
+            this.buttonScreenshotSec.Location = new System.Drawing.Point(936, 571);
+            this.buttonScreenshotSec.Name = "buttonScreenshotSec";
+            this.buttonScreenshotSec.Size = new System.Drawing.Size(75, 23);
+            this.buttonScreenshotSec.TabIndex = 6;
+            this.buttonScreenshotSec.Text = "Screenshot";
+            this.buttonScreenshotSec.UseVisualStyleBackColor = true;
+            this.buttonScreenshotSec.Click += new System.EventHandler(this.buttonScreenshotSec_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 576);
+            this.ClientSize = new System.Drawing.Size(1024, 606);
+            this.Controls.Add(this.buttonScreenshotSec);
+            this.Controls.Add(this.textUrlSec);
+            this.Controls.Add(this.secondaryWV);
             this.Controls.Add(this.buttonScreenshot);
             this.Controls.Add(this.textUrl);
             this.Controls.Add(this.buttonGo);
-            this.Controls.Add(this.webViewWindow);
+            this.Controls.Add(this.mainWV);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "WebView2 Application";
-            ((System.ComponentModel.ISupportInitialize)(this.webViewWindow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainWV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondaryWV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,9 +136,12 @@
 
         #endregion
 
-        private Microsoft.Web.WebView2.WinForms.WebView2 webViewWindow;
+        private Microsoft.Web.WebView2.WinForms.WebView2 mainWV;
         private System.Windows.Forms.Button buttonGo;
         private System.Windows.Forms.TextBox textUrl;
         private System.Windows.Forms.Button buttonScreenshot;
+        private Microsoft.Web.WebView2.WinForms.WebView2 secondaryWV;
+        private System.Windows.Forms.TextBox textUrlSec;
+        private System.Windows.Forms.Button buttonScreenshotSec;
     }
 }
