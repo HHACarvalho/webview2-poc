@@ -91,11 +91,11 @@ namespace webview2_poc
             }
         }
 
-        private void saveScreenshot(WebView2 wbWindow, string path)
+        private async void saveScreenshot(WebView2 wbWindow, string path)
         {
             using (var stream = new FileStream(path, FileMode.Create))
             {
-                wbWindow.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
+                await wbWindow.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
             }
         }
     }
