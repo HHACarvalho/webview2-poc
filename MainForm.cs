@@ -37,7 +37,7 @@ namespace webview2_poc
 
         private void buttonScreenshot_Click(object sender, EventArgs e)
         {
-            saveScreenshot(mainWebView, @"C:\temp\test.png");
+            saveScreenshot(mainWebView, @"C:\temp\" + fileNameCount() + ".png");
         }
 
         private async void buttonScreenshotOffscreen_Click(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace webview2_poc
                 await tsc.Task;
             }
 
-            saveScreenshot(offscreenWebView, @"C:\temp\testSec.png");
+            saveScreenshot(offscreenWebView, @"C:\temp\" + fileNameDate() + ".png");
         }
 
         private void requestScreenshot(object sender, CoreWebView2NavigationCompletedEventArgs e)
@@ -88,6 +88,17 @@ namespace webview2_poc
             {
                 await wbWindow.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
             }
+        }
+
+        private string fileNameDate()
+        {
+            var now = DateTime.Now;
+            return now.Day + "_" + now.Month + "_" + now.Year + "__" + now.Hour + "_" + now.Minute + "_" + now.Second + "_" + now.Millisecond;
+        }
+
+        private string fileNameCount()
+        {
+            return "IMG_" + Directory.GetFiles(@"C:\temp", "*", SearchOption.TopDirectoryOnly).Length.ToString().PadLeft(5, '0');
         }
     }
 }
