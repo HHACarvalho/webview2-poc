@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace webview2_poc.Properties
+namespace Shared.Properties
 {
 
 

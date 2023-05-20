@@ -5,7 +5,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace webview2_poc
+namespace Shared
 {
     public partial class MainForm : Form
     {
@@ -17,17 +17,17 @@ namespace webview2_poc
         }
 
         /*
-        * Events
-        */
+         * Events
+         */
 
         private void buttonGo_Click(object sender, EventArgs e)
         {
-            Uri uri = getUri(textUrl.Text);
-            textUrl.Text = uri.ToString();
-            mainWebView.Source = uri;
+            Uri uri = getValidUri(textBoxUrl.Text);
+            textBoxUrl.Text = uri.ToString();
+            webView.Source = uri;
         }
 
-        private void textUrlEnter(object sender, KeyEventArgs e)
+        private void textBoxUrl_Enter(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -37,35 +37,43 @@ namespace webview2_poc
 
         private void buttonScreenshot_Click(object sender, EventArgs e)
         {
-            saveScreenshot(mainWebView, @"C:\temp\" + fileNameCount() + ".png");
+            saveScreenshot(webView, @"C:\temp\" + fileNameCount() + ".png");
+        }
+
+        private void textBoxUrlOffscreen_Enter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonScreenshotOffscreen_Click(sender, e);
+            }
         }
 
         private async void buttonScreenshotOffscreen_Click(object sender, EventArgs e)
         {
-            Uri uri = getUri(textUrlOffscreen.Text);
+            Uri uri = getValidUri(textBoxUrlOffscreen.Text);
 
-            if (uri.ToString() != textUrlOffscreen.Text)
+            if (uri.ToString() != textBoxUrlOffscreen.Text)
             {
-                textUrlOffscreen.Text = uri.ToString();
-                offscreenWebView.Source = uri;
+                textBoxUrlOffscreen.Text = uri.ToString();
+                webViewOffscreen.Source = uri;
 
                 tsc = new TaskCompletionSource<bool>();
                 await tsc.Task;
             }
 
-            saveScreenshot(offscreenWebView, @"C:\temp\" + fileNameDate() + ".png");
+            saveScreenshot(webViewOffscreen, @"C:\temp\offscreen_" + fileNameCount() + ".png");
         }
 
-        private void requestScreenshot(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        private void webviewOffscreen_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             tsc?.TrySetResult(true);
         }
 
         /*
-         * Private methods
+         * Private Methods
          */
 
-        private Uri getUri(string rawUrl)
+        private Uri getValidUri(string rawUrl)
         {
             if (Uri.IsWellFormedUriString(rawUrl, UriKind.Absolute))
             {
@@ -77,8 +85,7 @@ namespace webview2_poc
             }
             else
             {
-                return new Uri("https://google.com/search?q=" +
-                    string.Join("+", Uri.EscapeDataString(rawUrl).Split(new string[] { "%20" }, StringSplitOptions.RemoveEmptyEntries)));
+                return new Uri("https://google.com/search?q=" + string.Join("+", Uri.EscapeDataString(rawUrl).Split(new string[] { "%20" }, StringSplitOptions.RemoveEmptyEntries)));
             }
         }
 
@@ -88,12 +95,6 @@ namespace webview2_poc
             {
                 await wbWindow.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
             }
-        }
-
-        private string fileNameDate()
-        {
-            var now = DateTime.Now;
-            return now.Day + "_" + now.Month + "_" + now.Year + "__" + now.Hour + "_" + now.Minute + "_" + now.Second + "_" + now.Millisecond;
         }
 
         private string fileNameCount()
