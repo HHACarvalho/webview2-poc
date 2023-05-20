@@ -2,4 +2,5 @@
 
 ### Requirements
 - [x] Windows Forms Application
-- [ ] Offscreen rendering + Screenshot
+- [x] Offscreen rendering + Screenshot
+- [ ] Microsoft PowerPoint Add-in
