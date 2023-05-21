@@ -12,5 +12,10 @@ namespace PowerPoint
         {
 
         }
+
+        private void buttonLaunchApp_Click(object sender, RibbonControlEventArgs e)
+        {
+            Console.WriteLine("Hello!");
+        }
     }
 }

@@ -34,39 +34,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tab1 = this.Factory.CreateRibbonTab();
-            this.group1 = this.Factory.CreateRibbonGroup();
-            this.tab1.SuspendLayout();
+            this.tabVSTO = this.Factory.CreateRibbonTab();
+            this.groupGeneral = this.Factory.CreateRibbonGroup();
+            this.buttonLaunchApp = this.Factory.CreateRibbonButton();
+            this.tabVSTO.SuspendLayout();
+            this.groupGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tab1
+            // tabVSTO
             // 
-            this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
-            this.tab1.Groups.Add(this.group1);
-            this.tab1.Label = "TabAddIns";
-            this.tab1.Name = "tab1";
+            this.tabVSTO.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
+            this.tabVSTO.Groups.Add(this.groupGeneral);
+            this.tabVSTO.Label = "VSTO";
+            this.tabVSTO.Name = "tabVSTO";
             // 
-            // group1
+            // groupGeneral
             // 
-            this.group1.Label = "group1";
-            this.group1.Name = "group1";
+            this.groupGeneral.Items.Add(this.buttonLaunchApp);
+            this.groupGeneral.Label = "General";
+            this.groupGeneral.Name = "groupGeneral";
+            // 
+            // buttonLaunchApp
+            // 
+            this.buttonLaunchApp.Label = "Launch App";
+            this.buttonLaunchApp.Name = "buttonLaunchApp";
+            this.buttonLaunchApp.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonLaunchApp_Click);
             // 
             // Ribbon
             // 
             this.Name = "Ribbon";
             this.RibbonType = "Microsoft.PowerPoint.Presentation";
-            this.Tabs.Add(this.tab1);
+            this.Tabs.Add(this.tabVSTO);
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon_Load);
-            this.tab1.ResumeLayout(false);
-            this.tab1.PerformLayout();
+            this.tabVSTO.ResumeLayout(false);
+            this.tabVSTO.PerformLayout();
+            this.groupGeneral.ResumeLayout(false);
+            this.groupGeneral.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonTab tabVSTO;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup groupGeneral;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonLaunchApp;
     }
 
     partial class ThisRibbonCollection
