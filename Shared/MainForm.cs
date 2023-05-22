@@ -14,6 +14,18 @@ namespace Shared
         public MainForm()
         {
             InitializeComponent();
+            InitializeAsync();
+        }
+
+        async void InitializeAsync()
+        {
+            var webView2Environment = await CoreWebView2Environment.CreateAsync(null, @"C:\temp\");
+
+            await webView.EnsureCoreWebView2Async(webView2Environment);
+            await webViewOffscreen.EnsureCoreWebView2Async(webView2Environment);
+
+            webView.Source = new Uri("https://www.google.com/", UriKind.Absolute);
+            webViewOffscreen.Source = new Uri("https://www.youtube.com/", UriKind.Absolute);
         }
 
         /*

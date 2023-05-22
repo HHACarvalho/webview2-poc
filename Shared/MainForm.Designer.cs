@@ -77,7 +77,6 @@
             this.webView.Location = new System.Drawing.Point(12, 41);
             this.webView.Name = "webView";
             this.webView.Size = new System.Drawing.Size(1000, 523);
-            this.webView.Source = new System.Uri("https://www.google.com/", System.UriKind.Absolute);
             this.webView.TabIndex = 3;
             this.webView.ZoomFactor = 1D;
             // 
@@ -108,7 +107,6 @@
             this.webViewOffscreen.Location = new System.Drawing.Point(12, 650);
             this.webViewOffscreen.Name = "webViewOffscreen";
             this.webViewOffscreen.Size = new System.Drawing.Size(1000, 523);
-            this.webViewOffscreen.Source = new System.Uri("https://www.youtube.com/", System.UriKind.Absolute);
             this.webViewOffscreen.TabIndex = 6;
             this.webViewOffscreen.TabStop = false;
             this.webViewOffscreen.ZoomFactor = 1D;
