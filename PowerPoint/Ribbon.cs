@@ -1,21 +1,18 @@
 ﻿using Microsoft.Office.Tools.Ribbon;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Shared;
 
 namespace PowerPoint
 {
     public partial class Ribbon
     {
-        private void Ribbon_Load(object sender, RibbonUIEventArgs e)
-        {
+        MainForm mainForm;
 
-        }
+        private void Ribbon_Load(object sender, RibbonUIEventArgs e) { }
 
         private void buttonLaunchApp_Click(object sender, RibbonControlEventArgs e)
         {
-            Console.WriteLine("Hello!");
+            mainForm = new MainForm();
+            mainForm.Show();
         }
     }
 }
