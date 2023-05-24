@@ -3,4 +3,5 @@
 ### Requirements
 - [x] Windows Forms Application
 - [x] Offscreen rendering + Screenshot
-- [ ] Microsoft PowerPoint Add-in
+- [x] Microsoft PowerPoint Add-in
+- [ ] Microsoft Outlook Add-in
