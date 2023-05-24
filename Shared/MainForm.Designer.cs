@@ -111,7 +111,7 @@
             this.webViewOffscreen.DefaultBackgroundColor = System.Drawing.Color.White;
             this.webViewOffscreen.Location = new System.Drawing.Point(12, 650);
             this.webViewOffscreen.Name = "webViewOffscreen";
-            this.webViewOffscreen.Size = new System.Drawing.Size(1000, 523);
+            this.webViewOffscreen.Size = new System.Drawing.Size(1920, 1080);
             this.webViewOffscreen.TabIndex = 6;
             this.webViewOffscreen.TabStop = false;
             this.webViewOffscreen.ZoomFactor = 1D;
