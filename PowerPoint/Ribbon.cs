@@ -2,6 +2,7 @@
 using Microsoft.Office.Tools.Ribbon;
 using Shared;
 using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace PowerPoint
@@ -29,14 +30,16 @@ namespace PowerPoint
             mainForm.FormClose -= MainForm_formClosed;
         }
 
-        private void MainForm_screenshotTaken(object sender, EventArgs e)
+        private async void MainForm_screenshotTaken(object sender, EventArgs e)
         {
-            AddImageToPresentation(mainForm.SaveScreenshot(false).Result);
+            var imagePath = await mainForm.SaveScreenshot(false);
+            AddImageToPresentation(imagePath);
         }
 
-        private void MainForm_screenshotOffscreenTaken(object sender, EventArgs e)
+        private async void MainForm_screenshotOffscreenTaken(object sender, EventArgs e)
         {
-            AddImageToPresentation(mainForm.SaveScreenshot(true).Result);
+            var imagePath = await mainForm.SaveScreenshot(true);
+            AddImageToPresentation(imagePath);
         }
 
         private void AddImageToPresentation(string imagePath)
