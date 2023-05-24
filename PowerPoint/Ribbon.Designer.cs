@@ -58,7 +58,7 @@
             // 
             this.buttonLaunchApp.Label = "Launch App";
             this.buttonLaunchApp.Name = "buttonLaunchApp";
-            this.buttonLaunchApp.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonLaunchApp_Click);
+            this.buttonLaunchApp.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ButtonLaunchApp_Click);
             // 
             // Ribbon
             // 

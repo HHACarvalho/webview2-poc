@@ -1,5 +1,4 @@
 ﻿using Microsoft.Web.WebView2.Core;
-using Microsoft.Web.WebView2.WinForms;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -9,7 +8,11 @@ namespace Shared
 {
     public partial class MainForm : Form
     {
-        TaskCompletionSource<bool> tsc;
+        public event EventHandler FormClose;
+        public event EventHandler ScreenshotTaken;
+        public event EventHandler ScreenshotOffscreenTaken;
+        private TaskCompletionSource<bool> tsc;
+        private readonly string rootPath = @"C:\temp\";
 
         public MainForm()
         {
@@ -19,7 +22,7 @@ namespace Shared
 
         async void InitializeAsync()
         {
-            var webView2Environment = await CoreWebView2Environment.CreateAsync(null, @"C:\temp\");
+            var webView2Environment = await CoreWebView2Environment.CreateAsync(null, rootPath);
 
             await webView.EnsureCoreWebView2Async(webView2Environment);
             await webViewOffscreen.EnsureCoreWebView2Async(webView2Environment);
@@ -32,37 +35,37 @@ namespace Shared
          * Events
          */
 
-        private void buttonGo_Click(object sender, EventArgs e)
+        private void ButtonGo_Click(object sender, EventArgs e)
         {
-            Uri uri = getValidUri(textBoxUrl.Text);
+            Uri uri = GetValidUri(textBoxUrl.Text);
             textBoxUrl.Text = uri.ToString();
             webView.Source = uri;
         }
 
-        private void textBoxUrl_Enter(object sender, KeyEventArgs e)
+        private void TextBoxUrl_Enter(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                buttonGo_Click(sender, e);
+                ButtonGo_Click(sender, EventArgs.Empty);
             }
         }
 
-        private void buttonScreenshot_Click(object sender, EventArgs e)
+        private void ButtonScreenshot_Click(object sender, EventArgs e)
         {
-            saveScreenshot(webView, @"C:\temp\" + fileNameCount() + ".png");
+            ScreenshotTaken?.Invoke(this, EventArgs.Empty);
         }
 
-        private void textBoxUrlOffscreen_Enter(object sender, KeyEventArgs e)
+        private void TextBoxUrlOffscreen_Enter(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                buttonScreenshotOffscreen_Click(sender, e);
+                ButtonScreenshotOffscreen_Click(sender, EventArgs.Empty);
             }
         }
 
-        private async void buttonScreenshotOffscreen_Click(object sender, EventArgs e)
+        private async void ButtonScreenshotOffscreen_Click(object sender, EventArgs e)
         {
-            Uri uri = getValidUri(textBoxUrlOffscreen.Text);
+            Uri uri = GetValidUri(textBoxUrlOffscreen.Text);
 
             if (uri.ToString() != textBoxUrlOffscreen.Text)
             {
@@ -73,19 +76,24 @@ namespace Shared
                 await tsc.Task;
             }
 
-            saveScreenshot(webViewOffscreen, @"C:\temp\offscreen_" + fileNameCount() + ".png");
+            ScreenshotOffscreenTaken?.Invoke(this, EventArgs.Empty);
         }
 
-        private void webviewOffscreen_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        private void WebviewOffscreen_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             tsc?.TrySetResult(true);
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormClose?.Invoke(this, EventArgs.Empty);
         }
 
         /*
          * Private Methods
          */
 
-        private Uri getValidUri(string rawUrl)
+        private Uri GetValidUri(string rawUrl)
         {
             if (Uri.IsWellFormedUriString(rawUrl, UriKind.Absolute))
             {
@@ -101,17 +109,23 @@ namespace Shared
             }
         }
 
-        private async void saveScreenshot(WebView2 wbWindow, string path)
+        public async Task<string> SaveScreenshot(bool offscreen)
         {
+            var path = rootPath + Guid.NewGuid().ToString() + ".png";
+
             using (var stream = new FileStream(path, FileMode.Create))
             {
-                await wbWindow.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
+                if (offscreen)
+                {
+                    await webViewOffscreen.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
+                }
+                else
+                {
+                    await webView.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
+                }
             }
-        }
 
-        private string fileNameCount()
-        {
-            return "IMG_" + Directory.GetFiles(@"C:\temp", "*", SearchOption.TopDirectoryOnly).Length.ToString().PadLeft(5, '0');
+            return path;
         }
     }
 }

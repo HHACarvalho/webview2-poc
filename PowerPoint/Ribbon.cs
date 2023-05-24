@@ -1,18 +1,49 @@
-﻿using Microsoft.Office.Tools.Ribbon;
+﻿using Microsoft.Office.Core;
+using Microsoft.Office.Tools.Ribbon;
 using Shared;
+using System;
+using System.IO;
 
 namespace PowerPoint
 {
     public partial class Ribbon
     {
-        MainForm mainForm;
+        private MainForm mainForm;
 
         private void Ribbon_Load(object sender, RibbonUIEventArgs e) { }
 
-        private void buttonLaunchApp_Click(object sender, RibbonControlEventArgs e)
+        private void ButtonLaunchApp_Click(object sender, RibbonControlEventArgs e)
         {
             mainForm = new MainForm();
             mainForm.Show();
+
+            mainForm.FormClose += MainForm_formClosed;
+            mainForm.ScreenshotTaken += MainForm_screenshotTaken;
+            mainForm.ScreenshotOffscreenTaken += MainForm_screenshotOffscreenTaken;
+        }
+
+        private void MainForm_formClosed(object sender, EventArgs e)
+        {
+            mainForm.ScreenshotOffscreenTaken -= MainForm_screenshotOffscreenTaken;
+            mainForm.ScreenshotTaken -= MainForm_screenshotTaken;
+            mainForm.FormClose -= MainForm_formClosed;
+        }
+
+        private void MainForm_screenshotTaken(object sender, EventArgs e)
+        {
+            AddImageToPresentation(mainForm.SaveScreenshot(false).Result);
+        }
+
+        private void MainForm_screenshotOffscreenTaken(object sender, EventArgs e)
+        {
+            AddImageToPresentation(mainForm.SaveScreenshot(true).Result);
+        }
+
+        private void AddImageToPresentation(string imagePath)
+        {
+            var currentSlide = Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
+            currentSlide.Shapes.AddPicture(imagePath, MsoTriState.msoTrue, MsoTriState.msoTrue, 0, 0);
+            File.Delete(imagePath);
         }
     }
 }

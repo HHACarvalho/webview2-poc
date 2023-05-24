@@ -48,7 +48,7 @@
             this.buttonGo.TabIndex = 0;
             this.buttonGo.Text = "Go";
             this.buttonGo.UseVisualStyleBackColor = true;
-            this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
+            this.buttonGo.Click += new System.EventHandler(this.ButtonGo_Click);
             // 
             // textBoxUrl
             // 
@@ -57,7 +57,7 @@
             this.textBoxUrl.Size = new System.Drawing.Size(838, 20);
             this.textBoxUrl.TabIndex = 1;
             this.textBoxUrl.Text = "https://www.google.com/";
-            this.textBoxUrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUrl_Enter);
+            this.textBoxUrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxUrl_Enter);
             // 
             // buttonScreenshot
             // 
@@ -67,7 +67,7 @@
             this.buttonScreenshot.TabIndex = 2;
             this.buttonScreenshot.Text = "Screenshot";
             this.buttonScreenshot.UseVisualStyleBackColor = true;
-            this.buttonScreenshot.Click += new System.EventHandler(this.buttonScreenshot_Click);
+            this.buttonScreenshot.Click += new System.EventHandler(this.ButtonScreenshot_Click);
             // 
             // webView
             // 
@@ -87,7 +87,7 @@
             this.textBoxUrlOffscreen.Size = new System.Drawing.Size(918, 20);
             this.textBoxUrlOffscreen.TabIndex = 4;
             this.textBoxUrlOffscreen.Text = "https://www.youtube.com/";
-            this.textBoxUrlOffscreen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUrlOffscreen_Enter);
+            this.textBoxUrlOffscreen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxUrlOffscreen_Enter);
             // 
             // buttonScreenshotOffscreen
             // 
@@ -97,7 +97,7 @@
             this.buttonScreenshotOffscreen.TabIndex = 5;
             this.buttonScreenshotOffscreen.Text = "Screenshot";
             this.buttonScreenshotOffscreen.UseVisualStyleBackColor = true;
-            this.buttonScreenshotOffscreen.Click += new System.EventHandler(this.buttonScreenshotOffscreen_Click);
+            this.buttonScreenshotOffscreen.Click += new System.EventHandler(this.ButtonScreenshotOffscreen_Click);
             // 
             // webViewOffscreen
             // 
@@ -110,7 +110,7 @@
             this.webViewOffscreen.TabIndex = 6;
             this.webViewOffscreen.TabStop = false;
             this.webViewOffscreen.ZoomFactor = 1D;
-            this.webViewOffscreen.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.webviewOffscreen_NavigationCompleted);
+            this.webViewOffscreen.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.WebviewOffscreen_NavigationCompleted);
             // 
             // MainForm
             // 
@@ -127,6 +127,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "WebView2 Application";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewOffscreen)).EndInit();
             this.ResumeLayout(false);
