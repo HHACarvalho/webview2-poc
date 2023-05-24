@@ -11,8 +11,12 @@ namespace Shared
         public event EventHandler FormClose;
         public event EventHandler ScreenshotTaken;
         public event EventHandler ScreenshotOffscreenTaken;
+
         private TaskCompletionSource<bool> tsc;
+
         private readonly string rootPath = @"C:\temp\";
+        private readonly string webViewStartUrl = "https://www.google.com/";
+        private readonly string webViewOffscreenStartUrl = "https://www.youtube.com/";
 
         public MainForm()
         {
@@ -27,8 +31,8 @@ namespace Shared
             await webView.EnsureCoreWebView2Async(webView2Environment);
             await webViewOffscreen.EnsureCoreWebView2Async(webView2Environment);
 
-            webView.Source = new Uri("https://www.google.com/", UriKind.Absolute);
-            webViewOffscreen.Source = new Uri("https://www.youtube.com/", UriKind.Absolute);
+            webView.Source = new Uri(webViewStartUrl);
+            webViewOffscreen.Source = new Uri(webViewOffscreenStartUrl);
         }
 
         /*

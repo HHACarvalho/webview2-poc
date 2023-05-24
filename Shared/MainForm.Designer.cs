@@ -85,6 +85,7 @@
             this.webView.Size = new System.Drawing.Size(1000, 523);
             this.webView.TabIndex = 3;
             this.webView.ZoomFactor = 1D;
+            this.webView.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.WebView_SourceChanged);
             // 
             // textBoxUrlOffscreen
             // 
