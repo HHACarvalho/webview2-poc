@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPoint", "PowerPoint\PowerPoint.csproj", "{A2A1C9AD-95A6-45F6-8752-A7DAA8B48F19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Outlook", "Outlook\Outlook.csproj", "{7F3233AC-734A-4F1E-A43B-0B4E5F545334}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A2A1C9AD-95A6-45F6-8752-A7DAA8B48F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2A1C9AD-95A6-45F6-8752-A7DAA8B48F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2A1C9AD-95A6-45F6-8752-A7DAA8B48F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F3233AC-734A-4F1E-A43B-0B4E5F545334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F3233AC-734A-4F1E-A43B-0B4E5F545334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F3233AC-734A-4F1E-A43B-0B4E5F545334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F3233AC-734A-4F1E-A43B-0B4E5F545334}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
