@@ -42,7 +42,6 @@
             // 
             // buttonGo
             // 
-            this.buttonGo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonGo.Location = new System.Drawing.Point(12, 12);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(75, 23);
@@ -53,6 +52,8 @@
             // 
             // textBoxUrl
             // 
+            this.textBoxUrl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxUrl.Location = new System.Drawing.Point(93, 14);
             this.textBoxUrl.Name = "textBoxUrl";
             this.textBoxUrl.Size = new System.Drawing.Size(838, 20);
@@ -62,7 +63,7 @@
             // 
             // buttonScreenshot
             // 
-            this.buttonScreenshot.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonScreenshot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonScreenshot.Location = new System.Drawing.Point(937, 12);
             this.buttonScreenshot.Name = "buttonScreenshot";
             this.buttonScreenshot.Size = new System.Drawing.Size(75, 23);
@@ -74,6 +75,9 @@
             // webView
             // 
             this.webView.AllowExternalDrop = true;
+            this.webView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.webView.CreationProperties = null;
             this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
             this.webView.Location = new System.Drawing.Point(12, 41);
@@ -84,7 +88,8 @@
             // 
             // textBoxUrlOffscreen
             // 
-            this.textBoxUrlOffscreen.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxUrlOffscreen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxUrlOffscreen.Location = new System.Drawing.Point(12, 573);
             this.textBoxUrlOffscreen.Name = "textBoxUrlOffscreen";
             this.textBoxUrlOffscreen.Size = new System.Drawing.Size(918, 20);
@@ -94,7 +99,7 @@
             // 
             // buttonScreenshotOffscreen
             // 
-            this.buttonScreenshotOffscreen.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonScreenshotOffscreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonScreenshotOffscreen.Location = new System.Drawing.Point(936, 571);
             this.buttonScreenshotOffscreen.Name = "buttonScreenshotOffscreen";
             this.buttonScreenshotOffscreen.Size = new System.Drawing.Size(75, 23);
