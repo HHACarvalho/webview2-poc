@@ -2,7 +2,6 @@
 using Microsoft.Office.Tools.Ribbon;
 using Shared;
 using System;
-using System.Diagnostics;
 using System.IO;
 
 namespace PowerPoint
