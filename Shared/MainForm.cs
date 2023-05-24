@@ -55,6 +55,11 @@ namespace Shared
             ScreenshotTaken?.Invoke(this, EventArgs.Empty);
         }
 
+        private void WebView_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
+        {
+            textBoxUrl.Text = webView.Source.AbsoluteUri;
+        }
+
         private void TextBoxUrlOffscreen_Enter(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
