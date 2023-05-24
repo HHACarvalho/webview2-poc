@@ -45,7 +45,7 @@
             // 
             this.tabVSTO.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tabVSTO.Groups.Add(this.groupGeneral);
-            this.tabVSTO.Label = "VSTO";
+            this.tabVSTO.Label = "QuickPrint";
             this.tabVSTO.Name = "tabVSTO";
             // 
             // groupGeneral
