@@ -135,6 +135,7 @@
             this.Controls.Add(this.textBoxUrl);
             this.Controls.Add(this.buttonGo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "MainForm";
             this.Text = "WebView2 Application";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
