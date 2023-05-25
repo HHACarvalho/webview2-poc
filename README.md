@@ -4,4 +4,3 @@
 - [x] Windows Forms Application
 - [x] Offscreen rendering + Screenshot
 - [x] Microsoft PowerPoint Add-in
-- [ ] Microsoft Outlook Add-in
