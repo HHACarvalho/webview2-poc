@@ -46,7 +46,7 @@
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(75, 23);
             this.buttonGo.TabIndex = 0;
-            this.buttonGo.Text = "Pesquisar";
+            this.buttonGo.Text = "Search";
             this.buttonGo.UseVisualStyleBackColor = true;
             this.buttonGo.Click += new System.EventHandler(this.ButtonGo_Click);
             // 
@@ -68,7 +68,7 @@
             this.buttonScreenshot.Name = "buttonScreenshot";
             this.buttonScreenshot.Size = new System.Drawing.Size(75, 23);
             this.buttonScreenshot.TabIndex = 2;
-            this.buttonScreenshot.Text = "Adicionar";
+            this.buttonScreenshot.Text = "Screenshot";
             this.buttonScreenshot.UseVisualStyleBackColor = true;
             this.buttonScreenshot.Click += new System.EventHandler(this.ButtonScreenshot_Click);
             // 
@@ -105,7 +105,7 @@
             this.buttonScreenshotOffscreen.Name = "buttonScreenshotOffscreen";
             this.buttonScreenshotOffscreen.Size = new System.Drawing.Size(75, 23);
             this.buttonScreenshotOffscreen.TabIndex = 5;
-            this.buttonScreenshotOffscreen.Text = "Adicionar";
+            this.buttonScreenshotOffscreen.Text = "Screenshot";
             this.buttonScreenshotOffscreen.UseVisualStyleBackColor = true;
             this.buttonScreenshotOffscreen.Click += new System.EventHandler(this.ButtonScreenshotOffscreen_Click);
             // 
