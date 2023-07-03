@@ -102,6 +102,12 @@ namespace Shared
          * Private Methods
          */
 
+        /// <summary>
+        /// Given a string returns a valid URI.
+        /// </summary>
+        /// <param name="rawUrl">The URL or seach query in string form.</param>
+        /// <returns>Returns a valid URI if the string provided was either valid or incomplete. Returns a google search result otherwise.</returns>
+        
         private Uri GetValidUri(string rawUrl)
         {
             if (Uri.IsWellFormedUriString(rawUrl, UriKind.Absolute))
@@ -118,6 +124,11 @@ namespace Shared
             }
         }
 
+        /// <summary>
+        /// Captures a screenshot from a WebView2 component and saves it to png file with an unique name.
+        /// </summary>
+        /// <param name="offscreen">Controls which WebView2 component is used to capture the screenshot. If true the offscreen one is used.</param>
+        /// <returns>A path to the saved image file.</returns>
         public async Task<string> SaveScreenshot(bool offscreen)
         {
             var path = rootPath + Guid.NewGuid().ToString() + ".png";
