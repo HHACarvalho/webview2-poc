@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.buttonGo = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxUrl = new System.Windows.Forms.TextBox();
             this.buttonScreenshot = new System.Windows.Forms.Button();
-            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.webViewMain = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.textBoxUrlOffscreen = new System.Windows.Forms.TextBox();
             this.buttonScreenshotOffscreen = new System.Windows.Forms.Button();
             this.webViewOffscreen = new Microsoft.Web.WebView2.WinForms.WebView2();
-            ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webViewMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewOffscreen)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonGo
+            // buttonSearch
             // 
-            this.buttonGo.Location = new System.Drawing.Point(12, 12);
-            this.buttonGo.Name = "buttonGo";
-            this.buttonGo.Size = new System.Drawing.Size(75, 23);
-            this.buttonGo.TabIndex = 0;
-            this.buttonGo.Text = "Search";
-            this.buttonGo.UseVisualStyleBackColor = true;
-            this.buttonGo.Click += new System.EventHandler(this.ButtonGo_Click);
+            this.buttonSearch.Location = new System.Drawing.Point(12, 12);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.TabIndex = 0;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.ButtonGo_Click);
             // 
             // textBoxUrl
             // 
@@ -72,20 +72,20 @@
             this.buttonScreenshot.UseVisualStyleBackColor = true;
             this.buttonScreenshot.Click += new System.EventHandler(this.ButtonScreenshot_Click);
             // 
-            // webView
+            // webViewMain
             // 
-            this.webView.AllowExternalDrop = true;
-            this.webView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.webViewMain.AllowExternalDrop = true;
+            this.webViewMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.webView.CreationProperties = null;
-            this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webView.Location = new System.Drawing.Point(12, 41);
-            this.webView.Name = "webView";
-            this.webView.Size = new System.Drawing.Size(1000, 523);
-            this.webView.TabIndex = 3;
-            this.webView.ZoomFactor = 1D;
-            this.webView.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.WebView_SourceChanged);
+            this.webViewMain.CreationProperties = null;
+            this.webViewMain.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webViewMain.Location = new System.Drawing.Point(12, 41);
+            this.webViewMain.Name = "webViewMain";
+            this.webViewMain.Size = new System.Drawing.Size(1000, 523);
+            this.webViewMain.TabIndex = 3;
+            this.webViewMain.ZoomFactor = 1D;
+            this.webViewMain.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.WebView_SourceChanged);
             // 
             // textBoxUrlOffscreen
             // 
@@ -131,16 +131,16 @@
             this.Controls.Add(this.webViewOffscreen);
             this.Controls.Add(this.buttonScreenshotOffscreen);
             this.Controls.Add(this.textBoxUrlOffscreen);
-            this.Controls.Add(this.webView);
+            this.Controls.Add(this.webViewMain);
             this.Controls.Add(this.buttonScreenshot);
             this.Controls.Add(this.textBoxUrl);
-            this.Controls.Add(this.buttonGo);
+            this.Controls.Add(this.buttonSearch);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "MainForm";
-            this.Text = "WebView2 Application";
+            this.Text = "QuickPrint";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webViewMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewOffscreen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -149,10 +149,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonGo;
+        private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textBoxUrl;
         private System.Windows.Forms.Button buttonScreenshot;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webViewMain;
         private System.Windows.Forms.TextBox textBoxUrlOffscreen;
         private System.Windows.Forms.Button buttonScreenshotOffscreen;
         private Microsoft.Web.WebView2.WinForms.WebView2 webViewOffscreen;

@@ -28,10 +28,10 @@ namespace Shared
         {
             var webView2Environment = await CoreWebView2Environment.CreateAsync(null, rootPath);
 
-            await webView.EnsureCoreWebView2Async(webView2Environment);
+            await webViewMain.EnsureCoreWebView2Async(webView2Environment);
             await webViewOffscreen.EnsureCoreWebView2Async(webView2Environment);
 
-            webView.Source = new Uri(webViewStartUrl);
+            webViewMain.Source = new Uri(webViewStartUrl);
             webViewOffscreen.Source = new Uri(webViewOffscreenStartUrl);
         }
 
@@ -43,7 +43,7 @@ namespace Shared
         {
             Uri uri = GetValidUri(textBoxUrl.Text);
             textBoxUrl.Text = uri.ToString();
-            webView.Source = uri;
+            webViewMain.Source = uri;
         }
 
         private void TextBoxUrl_Enter(object sender, KeyEventArgs e)
@@ -61,7 +61,7 @@ namespace Shared
 
         private void WebView_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {
-            textBoxUrl.Text = webView.Source.AbsoluteUri;
+            textBoxUrl.Text = webViewMain.Source.AbsoluteUri;
         }
 
         private void TextBoxUrlOffscreen_Enter(object sender, KeyEventArgs e)
@@ -130,7 +130,7 @@ namespace Shared
                 }
                 else
                 {
-                    await webView.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
+                    await webViewMain.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, stream);
                 }
             }
 
