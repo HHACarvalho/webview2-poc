@@ -99,7 +99,7 @@ namespace Shared
         }
 
         /*
-         * Private Methods
+         * Methods
          */
 
         /// <summary>
@@ -107,7 +107,6 @@ namespace Shared
         /// </summary>
         /// <param name="rawUrl">The URL or seach query in string form.</param>
         /// <returns>Returns a valid URI if the string provided was either valid or incomplete. Returns a google search result otherwise.</returns>
-        
         private Uri GetValidUri(string rawUrl)
         {
             if (Uri.IsWellFormedUriString(rawUrl, UriKind.Absolute))
