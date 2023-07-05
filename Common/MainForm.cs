@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shared
+namespace Common
 {
     public partial class MainForm : Form
     {

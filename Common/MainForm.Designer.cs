@@ -1,4 +1,4 @@
-﻿namespace Shared
+﻿namespace Common
 {
     partial class MainForm
     {

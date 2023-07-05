@@ -1,6 +1,6 @@
 ﻿using Microsoft.Office.Core;
 using Microsoft.Office.Tools.Ribbon;
-using Shared;
+using Common;
 using System;
 using System.IO;
 
