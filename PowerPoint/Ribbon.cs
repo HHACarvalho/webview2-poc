@@ -27,6 +27,8 @@ namespace PowerPoint
             mainForm.ScreenshotOffscreenTaken -= MainForm_screenshotOffscreenTaken;
             mainForm.ScreenshotTaken -= MainForm_screenshotTaken;
             mainForm.FormClose -= MainForm_formClosed;
+
+            mainForm = null;
         }
 
         private async void MainForm_screenshotTaken(object sender, EventArgs e)

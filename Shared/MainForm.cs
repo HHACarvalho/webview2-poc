@@ -76,7 +76,7 @@ namespace Shared
         {
             Uri uri = GetValidUri(textBoxUrlOffscreen.Text);
 
-            if (uri.ToString() != textBoxUrlOffscreen.Text)
+            if (uri.ToString() != webViewOffscreen.Source.ToString())
             {
                 textBoxUrlOffscreen.Text = uri.ToString();
                 webViewOffscreen.Source = uri;
