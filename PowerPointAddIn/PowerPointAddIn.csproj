@@ -195,7 +195,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Shared\Common.csproj">
+    <ProjectReference Include="..\Common\Common.csproj">
       <Project>{a3a7391c-e608-4bc0-8d47-e173945b5ded}</Project>
       <Name>Common</Name>
     </ProjectReference>
