@@ -41,7 +41,7 @@ namespace Common
 
         private void ButtonGo_Click(object sender, EventArgs e)
         {
-            Uri uri = GetValidUri(textBoxUrl.Text);
+            Uri uri = Service.GetValidUri(textBoxUrl.Text);
             textBoxUrl.Text = uri.ToString();
             webViewMain.Source = uri;
         }
@@ -74,7 +74,7 @@ namespace Common
 
         private async void ButtonScreenshotOffscreen_Click(object sender, EventArgs e)
         {
-            Uri uri = GetValidUri(textBoxUrlOffscreen.Text);
+            Uri uri = Service.GetValidUri(textBoxUrlOffscreen.Text);
 
             if (uri.ToString() != webViewOffscreen.Source.ToString())
             {
@@ -101,27 +101,6 @@ namespace Common
         /*
          * Methods
          */
-
-        /// <summary>
-        /// Given a string returns a valid URI.
-        /// </summary>
-        /// <param name="rawUrl">The URL or seach query in string form.</param>
-        /// <returns>Returns a valid URI if the string provided was either valid or incomplete. Returns a google search result otherwise.</returns>
-        private Uri GetValidUri(string rawUrl)
-        {
-            if (Uri.IsWellFormedUriString(rawUrl, UriKind.Absolute))
-            {
-                return new Uri(rawUrl);
-            }
-            else if (!rawUrl.Contains(" ") && rawUrl.Contains("."))
-            {
-                return new Uri("https://" + rawUrl);
-            }
-            else
-            {
-                return new Uri("https://google.com/search?q=" + string.Join("+", Uri.EscapeDataString(rawUrl).Split(new string[] { "%20" }, StringSplitOptions.RemoveEmptyEntries)));
-            }
-        }
 
         /// <summary>
         /// Captures a screenshot from a WebView2 component and saves it to png file with an unique name.
